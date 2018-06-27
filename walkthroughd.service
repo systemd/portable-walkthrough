@@ -1,0 +1,8 @@
+[Unit]
+Description=A simple example service
+
+[Service]
+ExecStart=/usr/local/lib/walkthroughd/walkthroughd
+
+[Install]
+WantedBy=multi-user.target
