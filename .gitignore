@@ -1,0 +1,5 @@
+*.raw
+*.raw.cache-pre-dev
+*.raw.cache-pre-inst
+mkosi.cache/
+walkthroughd
