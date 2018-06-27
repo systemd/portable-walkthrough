@@ -1,0 +1,19 @@
+#!/bin/sh
+set -ex
+
+# Build and install our little daemon to $DESTDIR
+make all
+make install
+
+# Let's use the distro-provided OS metadata but let's extend it a tiny
+# bit indicating that we are implementing a portable service
+mkdir -p "$DESTDIR"/etc
+cp /usr/lib/os-release "$DESTDIR"/etc/os-release
+cat >> "$DESTDIR"/etc/os-release <<EOF
+PORTABLE_PRETTY_NAME="Our Little Example Portable Service"
+EOF
+
+# The default profiles mount the host's /etc/resolv.conf into our
+# image. For that the file to mount over needs to exist. Let's create
+# it here.
+touch "$DESTDIR"/etc/resolv.conf

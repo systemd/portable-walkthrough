@@ -1,0 +1,22 @@
+# SPDX-License-Identifier: LGPL-2.1+
+
+# This is a settings file for OS image generation using mkosi (https://github.com/systemd/mkosi).
+# Simply invoke "mkosi" in the project directory to build an OS image.
+
+[Distribution]
+Distribution=fedora
+Release=27
+
+[Output]
+Format=raw_btrfs
+Output=walkthroughd_1.raw
+
+[Partitions]
+RootSize=1G
+
+[Packages]
+BuildPackages=
+        gcc
+        make
+
+Cache=mkosi.cache
